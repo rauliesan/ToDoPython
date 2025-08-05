@@ -84,3 +84,14 @@ def edit_state(id: int, db: Session= Depends(get_db)):
     db.commit()
     db.refresh(task)
     return task
+
+@app.post("/delete_task/")
+def delete_task(id: int, db: Session= Depends(get_db)):
+    task = db.query(Task).filter(Task.id==id).first()
+    if task:
+        db.delete(task)
+        db.commit()
+        db.refresh(task)
+        return task
+    else:
+        raise HTTPException(status_code=400, detail="Error, The task couldn't been deleted")
