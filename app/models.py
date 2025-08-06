@@ -10,7 +10,7 @@ class User(Base):
     username = Column(String, unique=True, index=True, nullable=False)
     password = Column(String, nullable=False)
 
-    tasks_user = relationship("Task", back_populates="user") # Relación entre el usuario y la tarea por ejemplo para acceder a todas las tareas de un usuario usuario.tasks_user
+    tasks = relationship("Task", back_populates="user") # Relación entre el usuario y la tarea por ejemplo para acceder a todas las tareas de un usuario usuario.tasks_user
 
 class Task(Base):
     __tablename__ = "tasks"
@@ -22,4 +22,4 @@ class Task(Base):
     state = Column(Boolean, nullable=False) # El estado de la tarea (false) por defecto porque cuando se crea no está realizada
     # Añadir como actualización la fecha de creación
 
-    user = relationship("User", back_populates="task")
+    user = relationship("User", back_populates="tasks")
