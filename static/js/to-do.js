@@ -29,7 +29,7 @@ function toDo() {
                                 </path>
                             </svg>
                         </button>
-                        <button class="card-button done" onclick="doneTask(${task.id})">Done</button>
+                        <button class="card-button done" onclick="changeState(${task.id})">Done</button>
                     </div>
                 </div>
             `;
@@ -67,7 +67,7 @@ function done(){
                                 </path>
                             </svg>
                         </button>
-                        <button class="card-button done" onclick="toDoTask(${task.id})">To Do</button>
+                        <button class="card-button done" onclick="changeState(${task.id})">To Do</button>
                     </div>
                 </div>
             `;
@@ -77,16 +77,32 @@ function done(){
 
 }
 
-function doneTask(taskId){
+function changeState(taskId){
     alert('Done task ' + taskId);
+    fetch('http://127.0.0.1:8000/edit_state/?id='+taskId, {
+        method: 'POST'
+    })
+    .then(response =>{
+        if(!response.ok){
+            throw new Error('Error, The state couldnt been changed')
+        }
+    })
 }
 
-function toDoTask(taskId){
-    alert('To do task ' + taskId);
+function createTask(){
+    
 }
 
 function deleteTask(taskId){
     alert('Delete task ' + taskId);
+    fetch('http://127.0.0.1:8000/delete_task/?id='+taskId, {
+        method: 'POST'
+    })
+    .then(response =>{
+        if(!response.ok){
+            throw new Error('Error, The task couldnt been deleted')
+        }
+    })
 }
 
 function logOut() {
