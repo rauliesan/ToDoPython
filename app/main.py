@@ -45,7 +45,7 @@ def create_user(username: str, password: str, db: Session = Depends(get_db)):
 def log_in(username: str, password: str, db: Session= Depends(get_db)):
     user = db.query(User).filter(User.username==username, User.password==password).first()
     if user:
-        return "You are log in"
+        return user
     else:
         raise HTTPException(status_code=400, detail="Error, this password or username is incorrect")
 
@@ -95,3 +95,15 @@ def delete_task(id: int, db: Session= Depends(get_db)):
         return task
     else:
         raise HTTPException(status_code=400, detail="Error, The task couldn't been deleted")
+    
+# Metodos para mostrar las tareas del usuario, una para las que está realizadas y otra para las que no (que lo único que pida es el id)
+
+@app.get("/get_toDo_tasks/")
+def get_toDo_tasks(user: int, db: Session= Depends(get_db)):
+    tasks = db.query(Task).filter(Task.id_user==user, Task.state==False).all()
+    return tasks
+
+@app.get("/get_done_tasks/")
+def get_done_tasks(user: int, db: Session= Depends(get_db)):
+    tasks = db.query(Task).filter(Task.id_user==user, Task.state==True).all()
+    return tasks

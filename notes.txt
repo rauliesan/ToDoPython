@@ -4,3 +4,5 @@ Que cuando esté el ratón encima aparezca un texto minimalista con un recuadro 
 Cuando haga click en la tarea que se meta para dentro y como desaparezca o haga algún tipo de animación
 Que se dividan en tareas realizadas y no realizadas arriba en el cabecero, y en la derecha del todo esté la cuenta
 Que la página index sea una página de inicio antes de querer iniciar sesión o registrarse pero que te de la opción a ello
+
+Que cuando acceda al iniciar sesión tenga un código que cuando salga lo elimine y así si quiero volver a entrar que una función compruebe si lo tengo para que me salga un error y no pueda volver a acceder a las tasks sin volver a haber iniciado sesión

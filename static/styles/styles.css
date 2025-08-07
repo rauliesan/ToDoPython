@@ -57,7 +57,7 @@ button:active {
     transform: translateY(0);
 }
 
-.info, #formLogIn{
+.info, #formLogIn, #formRegister{
     position: relative;
     top: -15%;
 }
