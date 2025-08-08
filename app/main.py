@@ -29,7 +29,7 @@ def get_db():
     finally:
         db.close()
 
-@app.get("/")
+@app.get("/", include_in_schema=False)
 async def root():
     return {"message": "API is running"}
 
