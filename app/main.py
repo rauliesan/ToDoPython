@@ -29,6 +29,10 @@ def get_db():
     finally:
         db.close()
 
+@app.get("/")
+async def root():
+    return {"message": "API is running"}
+
 @app.post("/create_user/")
 def create_user(username: str, password: str, db: Session = Depends(get_db)):
     user = db.query(User).filter(User.username == username).first()
