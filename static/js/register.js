@@ -5,7 +5,7 @@ function register(event){
 
     event.preventDefault();
 
-    fetch('http://127.0.0.1:8000/create_user/?username='+username+'&password='+password, {
+    fetch('https://todopython-b750.onrender.com/create_user/?username='+username+'&password='+password, {
         method: 'POST'
     })
     .then(response => {

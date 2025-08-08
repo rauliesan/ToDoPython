@@ -4,7 +4,7 @@ let message = localStorage.getItem('message');
 function toDo() {
     alert(user); /* Quitar en el futuro */
 
-    fetch('http://127.0.0.1:8000/get_toDo_tasks/?user=' + user)
+    fetch('https://todopython-b750.onrender.com/get_toDo_tasks/?user=' + user)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error with to-do tasks')
@@ -41,7 +41,7 @@ function toDo() {
 function done(){
     alert(user);
 
-    fetch('http://127.0.0.1:8000/get_done_tasks/?user='+user)
+    fetch('https://todopython-b750.onrender.com/get_done_tasks/?user='+user)
     .then(response => {
         if(!response.ok){
             throw new Error('Error with done tasks');
@@ -79,7 +79,7 @@ function done(){
 
 function changeState(taskId){
     alert('Done task ' + taskId);
-    fetch('http://127.0.0.1:8000/edit_state/?id='+taskId, {
+    fetch('https://todopython-b750.onrender.com/edit_state/?id='+taskId, {
         method: 'POST'
     })
     .then(response =>{
@@ -95,7 +95,7 @@ function createTask(){
 
 function deleteTask(taskId){
     alert('Delete task ' + taskId);
-    fetch('http://127.0.0.1:8000/delete_task/?id='+taskId, {
+    fetch('https://todopython-b750.onrender.com/delete_task/?id='+taskId, {
         method: 'POST'
     })
     .then(response =>{

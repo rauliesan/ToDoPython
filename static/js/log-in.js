@@ -5,7 +5,7 @@ function logIn(event){
 
     event.preventDefault();
 
-    fetch('http://127.0.0.1:8000/log_in/?username='+username+'&password='+password)
+    fetch('https://todopython-b750.onrender.com/log_in/?username='+username+'&password='+password)
     .then(response => {
         if(!response.ok){
             alert('Error, this password or username is incorrect');
