@@ -91,7 +91,6 @@ def delete_task(id: int, db: Session= Depends(get_db)):
     if task:
         db.delete(task)
         db.commit()
-        db.refresh(task)
         return task
     else:
         raise HTTPException(status_code=400, detail="Error, The task couldn't been deleted")
