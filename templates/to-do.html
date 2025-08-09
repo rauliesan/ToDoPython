@@ -21,7 +21,6 @@
         </div>
     </section>
     <div class="profile">
-
         <!-- Account Button -->
         <button class="account">
             <svg class="svgAccount" width="40" height="40" fill="#0092E4" xmlns="http://www.w3.org/2000/svg"
@@ -44,17 +43,52 @@
     </div>
     </section>
 
-
-    <button class="delete">
-        <svg viewBox="0 0 448 512" class="svgIcon">
-            <path
-                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z">
-            </path>
-        </svg>
-    </button>
-
+    <div class="create-container">
+        <button class="create" onclick="createTask()">
+            <span class="createText">Create</span>
+        </button>
+    </div>
 
     <section id="tasks"></section>
+
+    <!-- CreateTask -->
+    <div class="createPlace">
+        <div class="mac-header">
+            <span class="red"></span>
+            <span class="yellow"></span>
+            <span class="green"></span>
+        </div>
+        <input type="text" placeholder="Task name" class="create-title">Mac-Style Code Preview</span>
+        <p class="create-description">
+            This task will be placed in the tasks to do
+        </p>
+        <span class="create-tag">To-Do</span>
+        <div class="code-editor">
+            <input type="text" placeholder="Enter the text" class="code-input"></input>
+        </div>
+        <br>
+        <!-- Button Create inside the CreateTask -->
+        <button class="btn-small">
+            <div class="btn-small-content">
+                <div class="btn-small-icon">
+                    <svg xml:space="preserve" style="enable-background:new 0 0 80 80;" viewBox="0 0 80 80" height="40px"
+                        width="40px" y="0px" x="0px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+                        <g>
+                            <path d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16
+                                S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98
+                                c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8
+                                s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72
+                                c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8
+                                h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z"></path>
+                        </g>
+                    </svg>
+                </div>
+                <p class="btn-small-text">Create Task</p>
+            </div>
+        </button>
+
+    </div>
+
 
     <script src="../static/js/to-do.js"></script>
 </body>
