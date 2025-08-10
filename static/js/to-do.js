@@ -4,7 +4,7 @@ let message = localStorage.getItem('message');
 /* Hacer una pantalla de carga y una función que sea nada más cargar la página que si el usuario es null salga un error y no se pueda acceder a la página o que devuelva a la página de inicio de sesión */
 
 function toDo() {
-
+    closeCreateTask();
     fetch('https://todopython-b750.onrender.com/get_toDo_tasks/?user=' + user)
         .then(response => {
             if (!response.ok) {
@@ -44,7 +44,7 @@ function toDo() {
 }
 
 function done(){
-
+    closeCreateTask();
     fetch('https://todopython-b750.onrender.com/get_done_tasks/?user='+user)
     .then(response => {
         if(!response.ok){
@@ -101,8 +101,35 @@ function changeState(taskId, state){
     })
 }
 
+function openCreateTask(){
+    let createTask = document.querySelector('.createPlace');
+    createTask.style.display = "block";
+}
+
+function closeCreateTask(){
+    let createTask = document.querySelector('.createPlace');
+    createTask.style.display = "none";
+}
+
 function createTask(){
-    
+    let name = document.getElementById('name');
+    let text = document.getElementById('text');
+
+    fetch('https://todopython-b750.onrender.com/create_task/?name='+name.value+'&text='+text.value+'&state=false&user='+user, {
+        method: 'POST'
+    })
+    .then(response => {
+        if(response.ok){
+            name.value = '';
+            text.value = '';
+            closeCreateTask();
+            toDo();
+            
+        } else{
+            alert('Error, there is a task with the same name');
+            throw new Error('Error, there is a task with the same name');
+        }
+    })
 }
 
 function deleteTask(taskId, state){

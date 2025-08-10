@@ -44,7 +44,7 @@
     </section>
 
     <div class="create-container">
-        <button class="create" onclick="createTask()">
+        <button class="create" onclick="openCreateTask()">
             <span class="createText">Create</span>
         </button>
     </div>
@@ -58,17 +58,17 @@
             <span class="yellow"></span>
             <span class="green"></span>
         </div>
-        <input type="text" placeholder="Task name" class="create-title">Mac-Style Code Preview</span>
+        <input type="text" placeholder="Task name" class="create-title" id="name">Mac-Style Code Preview</span>
         <p class="create-description">
             This task will be placed in the tasks to do
         </p>
         <span class="create-tag">To-Do</span>
         <div class="code-editor">
-            <input type="text" placeholder="Enter the text" class="code-input"></input>
+            <input type="text" placeholder="Enter the text" class="code-input" id="text"></input>
         </div>
         <br>
         <!-- Button Create inside the CreateTask -->
-        <button class="btn-small">
+        <button class="btn-small" onclick="createTask()">
             <div class="btn-small-content">
                 <div class="btn-small-icon">
                     <svg xml:space="preserve" style="enable-background:new 0 0 80 80;" viewBox="0 0 80 80" height="40px"

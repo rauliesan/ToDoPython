@@ -34,7 +34,7 @@ section {
     gap: 1.5rem;
     justify-content: center;
     /* Centra el grid */
-    max-width: 620px;
+    max-width: 800px;
     /* 3 tarjetas de 190px + gaps */
     margin: 0 auto;
     /* Centra el contenedor si sobra espacio */
@@ -83,9 +83,12 @@ section {
 }
 
 
-/* CreatePlace hacer que se quede en una posición fija, que esté por encima de las cosas y que no se vea, y sea funcional la función de que se vea y que se deje de ver*/
+/* CreatePlace*/
 .createPlace {
+    display: none;
+    position: fixed;
     margin: auto;
+    z-index: 9999;
     width: 400px;
     padding: 20px;
     border: 1px solid #0d1117;
